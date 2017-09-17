@@ -1,0 +1,22 @@
+import pytube
+import os.path
+print("Enter the video link : ")
+link=input()
+yt=pytube.YouTube(link)
+videos=yt.get_videos()
+
+s=1
+for v in videos:
+    print(str(s)+"."+str(v))
+    s += 1
+
+print("enter the number of video : ")
+n=int(input())
+vid=videos[n-1]
+
+print("file will be downloaded to "+str('D:\(a)the_3_year\dopeMusic'))
+# or dest=input()
+dest = os.path.dirname('D:\(a)the_3_year\dopeMusic')
+vid.download(dest)
+
+print(yt.filename+"\n has been successfully downloaded ")
